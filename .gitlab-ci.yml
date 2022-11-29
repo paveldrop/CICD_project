@@ -1,14 +1,25 @@
 stages:
+  - style
   - build
+style-check:
+  tags:
+    - now
+  stage: style
+  script:
+    - cp materials/linters/.clang-format src/cat
+    - cp materials/linters/.clang-format src/grep
+    - cd src/cat; clang-format -n *.c
+    - cd ../grep; clang-format -n *.c
 build-code-job:
   tags:
     - now
   stage: build
   script:
     - echo "Start build cat and grep"
-    - cd .src/cat; make;
-      # artifacts:
-      #paths:
-      #- s21_cat
-      #- s21_grep
-      #expire_in: 1 month
+    - cd src/cat; make s21_cat;
+    - cd ../grep; make s21_grep;
+  artifacts:
+    paths:
+      - src/cat/s21_cat
+      - src/grep/s21_grep
+    expire_in: 1 month
