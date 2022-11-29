@@ -1,8 +1,6 @@
 stages:
   - build
 build-code-job:
-  tags:
-    - part2
   stage: build
   script:
     - echo "Start build cat and grep"
