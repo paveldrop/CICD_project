@@ -8,8 +8,8 @@ build-code-job:
     - echo "Start build cat and grep"
     - cd src/cat; make s21_cat;
     - cd ../grep; make s21_grep;
-      # artifacts:
-      #paths:
-      #- s21_cat
-      #- s21_grep
-      #expire_in: 1 month
+  artifacts:
+    paths:
+      - s21_cat
+      - s21_grep
+    expire_in: 1 month
