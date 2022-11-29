@@ -10,6 +10,6 @@ build-code-job:
     - cd ../grep; make s21_grep;
   artifacts:
     paths:
-      - s21_cat
-      - s21_grep
+      - src/cat/s21_cat
+      - src/grep/s21_grep
     expire_in: 1 month
