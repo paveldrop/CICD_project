@@ -6,7 +6,7 @@ build-code-job:
   stage: build
   script:
     - echo "Start build cat and grep"
-      #    - make
+    - cd .src/cat; make;
       # artifacts:
       #paths:
       #- s21_cat
