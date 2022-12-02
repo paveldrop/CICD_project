@@ -1,6 +1,7 @@
 stages:
   - style
   - build
+  - test
 style-check:
   tags:
     - now
@@ -23,3 +24,9 @@ build-code-job:
       - src/cat/s21_cat
       - src/grep/s21_grep
     expire_in: 1 month
+test-code-job:
+  tags:
+    - now
+  stage: test
+  script:
+    - sh test.sh;
