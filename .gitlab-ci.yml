@@ -1,7 +1,7 @@
 stages:
   - style
-  - build
   - test
+  - build
 style-check:
   tags:
     - now
