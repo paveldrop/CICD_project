@@ -9,7 +9,7 @@ style-check:
     - cp materials/linters/.clang-format src/cat
     - cp materials/linters/.clang-format src/grep
     - clang-format -n src/cat/*.c src/grep/*.c
-    - chmod +x *.sh; style_fail.sh;
+    - chmod +x *.sh; sh style_fail.sh;
 build-code-job:
   tags:
     - now
