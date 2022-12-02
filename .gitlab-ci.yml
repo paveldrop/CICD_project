@@ -31,5 +31,5 @@ test-code-job:
   dependencies:
     - build
   script:
-    - cd ./src/cat; sh ./cat_test.sh;
+    - cd $CI_PROJECT_DIR/src/cat; sh ./cat_test.sh;
     - cd ../grep; sh ./grep.sh;
