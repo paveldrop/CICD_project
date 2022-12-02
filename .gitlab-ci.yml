@@ -29,5 +29,5 @@ test-code-job:
     - now
   stage: test
   script:
-    - sh ./src/cat/cat_test.sh
-    - sh ./src/grep/grep.sh
+    - cd ./src/cat; sh ./cat_test.sh;
+    - cd ../grep; sh ./grep.sh;
