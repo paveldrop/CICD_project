@@ -28,6 +28,8 @@ test-code-job:
   tags:
     - now
   stage: test
+  dependencies:
+    - build
   script:
     - cd ./src/cat; sh ./cat_test.sh;
     - cd ../grep; sh ./grep.sh;
