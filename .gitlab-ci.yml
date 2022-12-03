@@ -19,7 +19,7 @@ build-code-job:
     - echo "Start build cat and grep"
     - cd src/cat; make s21_cat;
     - cd ../grep; make s21_grep;
-    - ls -a; ls -a ./src/cat/;
+    - ls -a; ls -a ../../;
   artifacts:
     paths:
       - src/cat/s21_cat
