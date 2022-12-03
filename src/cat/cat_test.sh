@@ -14,9 +14,9 @@ do
         do
             for flag_4 in '' -b -e -n -t # --number-nonblank --number --squeeze-blank
             do
-                if [[ $flag_1 != $flag_2 ]] && [[ $flag_1 != $flag_3 ]] && 
-                  [[ $flag_1 != $flag_4 ]] && [[ $flag_2 != $flag_3 ]] && 
-                  [[ $flag_2 != $flag_4 ]] && [[ $flag_3 != $flag_4 ]]
+                if [ $flag_1 != $flag_2 ] && [ $flag_1 != $flag_3 ] && 
+                  [ $flag_1 != $flag_4 ] && [ $flag_2 != $flag_3 ] && 
+                  [ $flag_2 != $flag_4 ] && [ $flag_3 != $flag_4 ]
                 then
                     OPTIONS="$flag_1 $flag_2 $FILE_NAME"
                     echo "sh: $OPTIONS"
@@ -44,7 +44,7 @@ echo "100 / 360 * $SUCCESS" | bc -l
 echo "SUCCESS: $SUCCESS"
 echo "FAIL: $FAIL"
 
-if [[ $FAIL -gt 0 ]]
+if [ $FAIL -gt 0 ]
 then
     exit 1
 else
