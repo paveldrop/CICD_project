@@ -2,7 +2,7 @@
 
 SUCCESS=0
 FAIL=0
-FILE_NAME="./tests/test.txt"
+FILE_NAME="tests/test.txt"
 DIFF_OUTPUT=""
 A=0
 
@@ -14,9 +14,9 @@ do
         do
             for flag_4 in '' -b -e -n -s -t # --number-nonblank --number --squeeze-blank
             do
-                if [ $flag_1 != $flag_2 ] && [ $flag_1 != $flag_3 ] && 
-                  [ $flag_1 != $flag_4 ] && [ $flag_2 != $flag_3 ] && 
-                  [ $flag_2 != $flag_4 ] && [ $flag_3 != $flag_4 ]
+                if [[ $flag_1 != $flag_2 ]] && [[ $flag_1 != $flag_3 ]] && 
+                  [[ $flag_1 != $flag_4 ]] && [[ $flag_2 != $flag_3 ]] && 
+                  [[ $flag_2 != $flag_4 ]] && [[ $flag_3 != $flag_4 ]]
                 then
                     OPTIONS="$flag_1 $flag_2 $FILE_NAME"
                     echo "sh: $OPTIONS"
@@ -25,11 +25,11 @@ do
                     cat $OPTIONS > temp.txt
 
                     DIFF_OUTPUT="$(diff -s s21_temp.txt temp.txt)"
-                    if [ "$DIFF_OUTPUT" == "Files s21_temp.txt and temp.txt are identical" ]
+                    if [[ "$DIFF_OUTPUT" == "Files s21_temp.txt and temp.txt are identical" ]] || [[ "$DIFF_OUTPUT" == "Файлы s21_temp.txt и temp.txt идентичны" ]]
                         then
-                            ( SUCCESS++ )
+                            (( SUCCESS++ ))
                         else
-                            ( FAIL++ )
+                            (( FAIL++ ))
                             echo "$(cmp s21_temp.txt temp.txt)"
                     fi
                     
