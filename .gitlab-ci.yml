@@ -2,6 +2,7 @@ stages:
   - style
   - build
   - test
+  - deploy
 style-check:
   tags:
     - now
@@ -34,3 +35,10 @@ test-code-job:
   script:
     - ls -a; ls -a ./src/cat/;
     - ./score_fail.sh
+deploy-code-job:
+  tags:
+    - now
+  stage: deploy
+  when: manual
+  script:
+    
