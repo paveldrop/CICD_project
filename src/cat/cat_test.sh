@@ -2,7 +2,7 @@
 
 SUCCESS=0
 FAIL=0
-FILE_NAME="tests/test.txt"
+FILE_NAME="./tests/test.txt"
 DIFF_OUTPUT=""
 A=0
 
@@ -27,9 +27,9 @@ do
                     DIFF_OUTPUT="$(diff -s s21_temp.txt temp.txt)"
                     if [ "$DIFF_OUTPUT" == "Files s21_temp.txt and temp.txt are identical" ]
                         then
-                            (( SUCCESS++ ))
+                            ( SUCCESS++ )
                         else
-                            (( FAIL++ ))
+                            ( FAIL++ )
                             echo "$(cmp s21_temp.txt temp.txt)"
                     fi
                     
