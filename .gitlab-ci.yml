@@ -33,7 +33,7 @@ test-code-job:
     - build-code-job
   script:
     - ls -a; ls -a ./src/cat/;
-    - cd src/cat/; sh src/cat/cat_test.sh;
+    - cd src/cat/; sh cat_test.sh;
   artifacts:
     paths:
       - src/cat/s21_cat
