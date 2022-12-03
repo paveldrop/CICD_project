@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 
 clang-format -n src/cat/*.c >> info 2>&1
