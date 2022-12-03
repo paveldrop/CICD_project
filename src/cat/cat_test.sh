@@ -6,13 +6,13 @@ FILE_NAME="tests/test.txt"
 DIFF_OUTPUT=""
 A=0
 
-for flag_1 in '' -b -e -n -t  #--number-nonblank --number --squeeze-blank
+for flag_1 in '' -b -e -n -s -t  #--number-nonblank --number --squeeze-blank
 do
-    for flag_2 in '' -b -e -n -t # --number-nonblank --number --squeeze-blank
+    for flag_2 in '' -b -e -n -s -t # --number-nonblank --number --squeeze-blank
     do
-        for flag_3 in '' -b -e -n -t # --number-nonblank --number --squeeze-blank
+        for flag_3 in '' -b -e -n -s -t # --number-nonblank --number --squeeze-blank
         do
-            for flag_4 in '' -b -e -n -t # --number-nonblank --number --squeeze-blank
+            for flag_4 in '' -b -e -n -s -t # --number-nonblank --number --squeeze-blank
             do
                 if [ $flag_1 != $flag_2 ] && [ $flag_1 != $flag_3 ] && 
                   [ $flag_1 != $flag_4 ] && [ $flag_2 != $flag_3 ] && 
@@ -25,7 +25,7 @@ do
                     cat $OPTIONS > temp.txt
 
                     DIFF_OUTPUT="$(diff -s s21_temp.txt temp.txt)"
-                    if [[ "$DIFF_OUTPUT" == "Files s21_temp.txt and temp.txt are identical" ]] || [[ "$DIFF_OUTPUT" == "Файлы s21_temp.txt и temp.txt идентичны" ]]
+                    if [ "$DIFF_OUTPUT" == "Files s21_temp.txt and temp.txt are identical" ]
                         then
                             (( SUCCESS++ ))
                         else
@@ -43,10 +43,3 @@ echo "SUCCESS %:"
 echo "100 / 360 * $SUCCESS" | bc -l
 echo "SUCCESS: $SUCCESS"
 echo "FAIL: $FAIL"
-
-if [ $FAIL -gt 0 ]
-then
-    exit 1
-else
-    exit 0
-fi
