@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SUCCESS=0
-FAIL=0
+FAIL1=0
 FILE_NAME="tests/test.txt"
 DIFF_OUTPUT=""
 A=0
@@ -29,7 +29,7 @@ do
                         then
                             (( SUCCESS++ ))
                         else
-                            (( FAIL++ ))
+                            (( FAIL1++ ))
                             echo "$(cmp s21_temp.txt temp.txt)"
                     fi
                     
@@ -42,11 +42,4 @@ done
 echo "SUCCESS %:"
 echo "100 / 360 * $SUCCESS" | bc -l
 echo "SUCCESS: $SUCCESS"
-echo "FAIL: $FAIL"
-
-if [[ $FAIL -gt 0 ]]
-then
-    exit 1
-else
-    exit 0
-fi
+echo "FAIL: $FAIL1"
