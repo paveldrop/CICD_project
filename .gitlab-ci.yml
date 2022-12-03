@@ -34,5 +34,5 @@ test-code-job:
     - ls -a; pwd;
     - sh ./cat_test.sh;
   artifacts:
-    path:
+    paths:
       - src/cat/s21_cat
