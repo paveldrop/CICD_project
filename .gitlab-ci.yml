@@ -32,5 +32,7 @@ test-code-job:
     - build-code-job
   script:
     - ls -a; pwd;
-    - cd $CI_PROJECT_DIR/src/cat; sh ./cat_test.sh;
-    - cd ../grep; sh ./grep.sh;
+    - sh ./cat_test.sh;
+  artifacts:
+    path:
+      - src/cat/s21_cat
