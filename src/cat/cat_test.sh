@@ -43,3 +43,10 @@ echo "SUCCESS %:"
 echo "100 / 360 * $SUCCESS" | bc -l
 echo "SUCCESS: $SUCCESS"
 echo "FAIL: $FAIL"
+
+if [[ $FAIL -gt 0 ]]
+then
+    exit 0
+else
+    exit 1
+fi
