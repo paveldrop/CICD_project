@@ -29,7 +29,7 @@ test-code-job:
     - now
   stage: test
   dependencies:
-    - build
+    - build-code-job
   script:
     - ls -a; pwd;
     - cd $CI_PROJECT_DIR/src/cat; sh ./cat_test.sh;
