@@ -39,7 +39,5 @@ do
         done
     done
 done
-echo "SUCCESS %:"
-echo "100 / 360 * $SUCCESS" | bc -l
 echo "SUCCESS: $SUCCESS"
 echo "FAIL: $FAIL1"
