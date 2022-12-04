@@ -39,6 +39,6 @@ deploy-code-job:
   tags:
     - now
   stage: deploy
-  when: manual
   script:
-    
+    - ./deploy.sh
+  when: manual
