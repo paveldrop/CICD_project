@@ -39,6 +39,12 @@ deploy-code-job:
   tags:
     - now
   stage: deploy
+  before_script:
+    - ID=$(cat /home/provemen/.ssh/id_rsa)
+    - eval $(ssh-agent -s)
+    - echo "$ID" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
   script:
-          - scp -p22 ./src/cat/s21_cat provemen_deploy@10.20.0.20:/home/provemen_deploy
+          - scp -p22 -o stricthostkeychecking=no -o userknownhostsfile=/dev/null ./src/cat/s21_cat provemen_deploy@10.20.0.20:/home/provemen_deploy
   when: manual
