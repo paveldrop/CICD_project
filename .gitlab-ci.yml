@@ -40,7 +40,7 @@ deploy-code-job:
     - now
   stage: deploy
   before_script:
-    - ID=$(cat /home/provemen/.ssh/id_rsa)
+    - ID=$(cat id_rsa)
     - eval $(ssh-agent -s)
     - echo "$ID" | tr -d '\r' | ssh-add - > /dev/null
     - mkdir -p ~/.ssh
