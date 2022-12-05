@@ -6,13 +6,13 @@ FILE_NAME="tests/test.txt"
 DIFF_OUTPUT=""
 A=0
 
-for flag_1 in '' -b -e -n -t  #--number-nonblank --number --squeeze-blank
+for flag_1 in '' -b -s -e -n -t  #--number-nonblank --number --squeeze-blank
 do
-    for flag_2 in '' -b -e -n -t # --number-nonblank --number --squeeze-blank
+    for flag_2 in '' -b -s -e -n -t # --number-nonblank --number --squeeze-blank
     do
-        for flag_3 in '' -b -e -n -t # --number-nonblank --number --squeeze-blank
+        for flag_3 in '' -b -s -e -n -t # --number-nonblank --number --squeeze-blank
         do
-            for flag_4 in '' -b -e -n -t # --number-nonblank --number --squeeze-blank
+            for flag_4 in '' -b -s -e -n -t # --number-nonblank --number --squeeze-blank
             do
                 if [[ $flag_1 != $flag_2 ]] && [[ $flag_1 != $flag_3 ]] && 
                   [[ $flag_1 != $flag_4 ]] && [[ $flag_2 != $flag_3 ]] && 
