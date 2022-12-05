@@ -51,6 +51,8 @@ deploy-code-job:
     - ./ssh_scr.sh
   when: manual
 notify-error:
+  tags:
+    - now
   stage: notify
   script:
     - ./tg_msg FAIL
