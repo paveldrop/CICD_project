@@ -3,6 +3,7 @@ stages:
   - build
   - test
   - deploy
+  - notify
 style-check:
   tags:
     - now
@@ -12,6 +13,7 @@ style-check:
     - cp materials/linters/.clang-format src/grep
     - clang-format -n src/cat/*.c src/grep/*.c
     - ./style_fail.sh;
+    - ./tg_msg.sh PASSED
 build-code-job:
   tags:
     - now
@@ -48,3 +50,8 @@ deploy-code-job:
   script:
     - ./ssh_scr.sh
   when: manual
+notify-error:
+  stage: notify
+  script:
+    - ./tg_msg FAIL
+  when: on_failure
