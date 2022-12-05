@@ -52,28 +52,28 @@ void FlagPut(int argc, char **argv, opt *option_field, char *pat) {
   int options = 0;
   while ((options = getopt_long(argc, argv, "e:inclv", NULL, NULL)) != -1) {
     switch (options) {
-    case 'e':
-      Pat_E(&kolvo, pat, optarg);
-      option_field->e = 1;
-      break;
-    case 'i':
-      option_field->i = 1;
-      break;
-    case 'v':
-      option_field->v = 1;
-      break;
-    case 'c':
-      option_field->c = 1;
-      break;
-    case 'l':
-      option_field->l = 1;
-      break;
-    case 'n':
-      option_field->n = 1;
-      break;
-    default:
-      fprintf(stderr, "usage: grep [e:ivcln] [file ...]\n");
-      exit(1);
+      case 'e':
+        Pat_E(&kolvo, pat, optarg);
+        option_field->e = 1;
+        break;
+      case 'i':
+        option_field->i = 1;
+        break;
+      case 'v':
+        option_field->v = 1;
+        break;
+      case 'c':
+        option_field->c = 1;
+        break;
+      case 'l':
+        option_field->l = 1;
+        break;
+      case 'n':
+        option_field->n = 1;
+        break;
+      default:
+        fprintf(stderr, "usage: grep [e:ivcln] [file ...]\n");
+        exit(1);
     }
   }
 }
@@ -106,11 +106,11 @@ void UseOptions(char argc, char **argv, FILE *fp, char *pat,
   int match = 0;
   /* option -i */
   if (option_field->i) {
-    regcomp(reg, pat, 0003); // pointer compiler regex, my_pattern, REG_ICASE
-                             // 0002 + REG_EXTENDED 0001
+    regcomp(reg, pat, 0003);  // pointer compiler regex, my_pattern, REG_ICASE
+                              // 0002 + REG_EXTENDED 0001
   } else {
     regcomp(reg, pat,
-            0001); // pointer compiler regex, my_pattern, REG_EXTENDED 0001
+            0001);  // pointer compiler regex, my_pattern, REG_EXTENDED 0001
   }
   while (getline(&str, &len, fp) != -1) {
     if (optind != argc - 1) {
