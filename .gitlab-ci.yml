@@ -51,7 +51,7 @@ deploy-code-job:
     - ./ssh_scr.sh
     - ./tg_msg.sh PASSED
   timeout: 15s
-  alow_failure: false
+  allow_failure: false
   when: manual
 notify-error:
   tags:
