@@ -50,6 +50,7 @@ deploy-code-job:
   script:
     - ./ssh_scr.sh
     - ./tg_msg.sh PASSED
+  timeout: 15s
   when: manual
 notify-error:
   tags:
