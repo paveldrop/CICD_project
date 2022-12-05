@@ -22,7 +22,7 @@ build-code-job:
     - echo "Start build cat and grep"
     - cd src/cat; make s21_cat;
     - cd ../grep; make s21_grep;
-    - ./tg_msg.sh PASSED
+    - ../../tg_msg.sh PASSED
   artifacts:
     paths:
       - src/cat/s21_cat
@@ -35,7 +35,6 @@ test-code-job:
   dependencies:
     - build-code-job
   script:
-    - ls -a; ls -a ./src/cat/;
     - ./score_fail.sh
     - ./tg_msg.sh PASSED
 deploy-code-job:
