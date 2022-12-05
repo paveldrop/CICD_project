@@ -55,5 +55,5 @@ notify-error:
     - now
   stage: notify
   script:
-    - ./tg_msg FAIL
+    - ./tg_msg.sh FAIL
   when: on_failure
