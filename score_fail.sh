@@ -9,7 +9,7 @@ source ./cat_test.sh
 cd ../grep/
 source grep.sh
 
-if [[ $FAIL1 -gt 0 ]] || [[ $FAIL2 -gt 0 ]]
+if [[ $FAIL1 -gt 0 ]] || [[ $COUNTER_FAIL -gt 0 ]]
 then
     echo -e "${RED}Intergration tests FAILED${NC}"
     exit 1
